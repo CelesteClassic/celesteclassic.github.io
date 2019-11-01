@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  width: 100vw;
+  text-align: center;
+
+  font-family: 'Staatliches', sans-serif;
+  font-size: 5vw;
+  font-weight: normal;
+}
+
+a > img {
+  width: 50vw;
+}
