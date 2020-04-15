@@ -1,23 +1,43 @@
-@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+@font-face {
+  font-family: 'pico-8';
+  src: url('font/pico-8-webfont.woff') format('woff'),
+       url('font/pico-8-webfont.woff2') format('woff2'),
+       url('font/pico-8.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 8px;
+  padding: 8px;
 
   width: 100vw;
   height: 100vh;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  font-family: 'pico-8';
+  line-height: 1.25;
+  background-color: #000;
 }
 
-h1 {
-  width: 100vw;
-  text-align: center;
+.bootup {
+  color: #c2c3c7;
+}
 
-  font-family: 'Staatliches', sans-serif;
-  font-size: 5vw;
-  font-weight: normal;
+.content {
+  color: #fff1e8;
+}
+
+.content a:link, a:visited, a:active {
+  color: #29adff;
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: #fff1e8;
+}
+
+img {
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }
