@@ -7,6 +7,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'pico-8-smooth';
+  src: url('font/pico-8-smooth-webfont.woff') format('woff'),
+       url('font/pico-8-smooth-webfont.woff2') format('woff2'),
+       url('font/pico-8-smooth.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 8px;
   padding: 8px;
@@ -14,7 +23,7 @@ body {
   width: 100vw - 8px;
   height: 100vh - 8px;
 
-  font-family: 'pico-8';
+  font-family: 'pico-8-smooth';
   line-height: 1.25;
   background-color: #000;
 }
