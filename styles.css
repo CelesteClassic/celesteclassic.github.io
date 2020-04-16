@@ -23,7 +23,7 @@ body {
   width: 100vw - 8px;
   height: 100vh - 8px;
 
-  font-family: 'pico-8-smooth';
+  font-family: 'pico-8';
   line-height: 1.25;
   background-color: #000;
 }
