@@ -50,6 +50,32 @@
         -ms-interpolation-mode: nearest-neighbor;
         border: 0px
       }
+
+      .pico8_el {
+        float:left;
+        width:25%;
+        display:inline-block; 
+        padding-top: 4px;
+        padding-bottom: 4px;
+        text-align: center;
+        color:#ffffff;
+        background-color:#151515;
+        font-size: 8pt;
+        cursor: pointer;
+        cursor: hand;
+      }
+      .pico8_el a{
+        text-decoration: none;
+        color:#ffffff;
+      }
+
+      .pico8_el:hover{
+        background-color:#606060;
+      }
+
+      .pico8_el:link{
+        background-color:#606060;
+      }
     </style>
   </head>
 
@@ -71,8 +97,8 @@
   <body>
     <div class="bootup">
       <img src="p8logo.png"> <img src="maddy.png" style="height:1.5em"><br><br>
-      pico-8 0.2.2c<br>
-      (c) 2014-21 lexaloffle games llp<br>
+      pico-8 0.2.1b<br>
+      (c) 2014-20 lexaloffle games llp<br>
       <br>
     </div>
     <div class="content">
@@ -108,9 +134,25 @@
                 document.addEventListener('keydown', onKeyDown_blocker, false);
               </script>
             </div>
+            <div class=pico8_el onclick="Module.pico8Reset();">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dOwoAMQhE15A+rfc/3bZ7AlMnQfywCkKsfcgMM9ZP+QHtIn0vLeBAFduiFdQ/0DmvtR5LXJ6CPSXe2ZXcFNlTxFbemKrbZPs35XogeS9xeQr+anT6LzoOwEDwZJ7jwhXUnwkTTiDQ2Ja34AAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Reset" width=12 height=12/>
+            reset
+            </div>
+            <div class=pico8_el onclick="Module.pico8TogglePaused();">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAPUlEQVR4Ae3doQ0AIAxEUWABLPtPh2WCq26DwFSU/JPNT166QSu/Hg86W9dwLte+diP7AwAAAAAAgD+A+jM2ZAgo84I0PgAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Pause" width=12 height=12/>
+            pause
+            </div>
+            <div class=pico8_el onclick="Module.requestFullScreen(true, false);">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dsQ1AIQhExfze1v2ns3UCrfgFhmgUUAoGgHscp21wX9BqaZoDojbB96OkDJKNcTN2BHTyYNYmoT2BlPL7BKgcPfHjAVXKKadkHOn9K1r16N0czN6a95N8mnA7Aq2fTZ3Af3UKmCSMazL8HwAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Fullscreen" width=12 height=12/>
+            fullscreen
+            </div>
+            <div class=pico8_el onclick="Module.pico8ToggleSound();">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAXklEQVR4Ae2doQ4AIQxD4YLH8v9fh+ULhjpxxSwLg2uyapr1JRu1iV5Z+1BGl4+xNpX38SYo2uRvYiT5LwEmt+ocgXVLrhPEgBiw8Q5w7/kueSkK+D2tJO4E/I3GrwkqQCBabEj/4QAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Toggle Sound" width=12 height=12/>
+            sound
+            </div>
           </td>
           <td>
-            <div id="splits" style="padding-left:16px;width:256px;height:512px;max-height:512px;overflow-y:auto"></div>
+            <div id="splits" style="padding-left:8px;width:256px;height:512px;max-height:512px;overflow-y:auto"></div>
           </td>
         </tr>
       </table>
