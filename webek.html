@@ -1,162 +1,172 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CELESTE Classic</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style type="text/css">
-      ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 8px;
-      }
 
-      ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(128, 128, 128, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-      }
-      .content hr {
-        border-top: 0.19em solid #fff1e8;
-        border-bottom: 0;
-        border-left: 0;
-        border-right: 0;
-        text-align: left;
-        margin-left: 0;
-        width: min(720px, 80vw);
-      }
-
-      .subcontent {
-        width: min(720px, 80vw);
-        padding-left: 1ch;
-      }
-
-      .content em {
-        font-weight: normal;
-        font-style: normal;
-        color: #c2c3c7;
-      }
-
-      canvas#canvas {
-        width: 512px;
-        height: 512px;
-      }
-
-      canvas {
-        image-rendering: optimizeSpeed;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: optimize-contrast;
-        image-rendering: pixelated;
-        -ms-interpolation-mode: nearest-neighbor;
-        border: 0px
-      }
-
-      .pico8_el {
-        float:left;
-        width:25%;
-        display:inline-block; 
-        padding-top: 4px;
-        padding-bottom: 4px;
-        text-align: center;
-        color:#ffffff;
-        background-color:#151515;
-        font-size: 8pt;
-        cursor: pointer;
-        cursor: hand;
-      }
-      .pico8_el a{
-        text-decoration: none;
-        color:#ffffff;
-      }
-
-      .pico8_el:hover{
-        background-color:#606060;
-      }
-
-      .pico8_el:link{
-        background-color:#606060;
-      }
-    </style>
-  </head>
-
-  <script type="text/javascript">
-    console.defaultLog = console.log.bind(console);
-    console.logs = [];
-    console.log = function(){
-      console.defaultLog.apply(console, arguments);
-      if (arguments[0] == 'clear') {
-        console.logs = [];
-        splits.innerHTML = '';
-      } else if (arguments[0].substring(0, 2) == '$$') {
-        console.logs.push(arguments[0].substring(2));
-        splits.innerHTML = console.logs.join('<br>')
-      }
+<head>
+  <title>CELESTE Classic</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <style type="text/css">
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 8px;
     }
-  </script>
-  
-  <body>
-    <div class="bootup">
-      <img src="p8logo.png"> <img src="maddy.png" style="height:1.5em"><br><br>
-      pico-8 0.2.2c<br>
-      (c) 2014-20 lexaloffle games llp<br>
-      <br>
-    </div>
-    <div class="content">
-      > webek.p8<br>
-      <br>
-      <a href="index.html">back to homepage</a><br>
-      <br>
-      <table>
-        <tr>
-          <td>
-            <div style="width:512px;height:512px;border-style:solid;border-width:4px;border-color:#1d2b53;">
-              <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-              <script type="text/javascript">
-                var canvas = document.getElementById("canvas");
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                var Module = {};
-                Module.canvas = canvas;
-              </script>
-              <script async type="text/javascript" src="webek.js"></script>
-              <script>
-                function onKeyDown_blocker(event) {
-                  event = event || window.event;
-                  var o = document.activeElement;
-                  if (!o || o == document.body || o.tagName == "canvas")
-                  {
-                    if ([32, 37, 38, 39, 40, 82].indexOf(event.keyCode) > -1)
-                    {
-                      if (event.preventDefault) event.preventDefault();
-                    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(128, 128, 128, .5);
+      box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+    .content hr {
+      border-top: 0.19em solid #fff1e8;
+      border-bottom: 0;
+      border-left: 0;
+      border-right: 0;
+      text-align: left;
+      margin-left: 0;
+      width: min(720px, 80vw);
+    }
+
+    .subcontent {
+      width: min(720px, 80vw);
+      padding-left: 1ch;
+    }
+
+    .content em {
+      font-weight: normal;
+      font-style: normal;
+      color: #c2c3c7;
+    }
+
+    canvas#canvas {
+      width: 512px;
+      height: 512px;
+    }
+
+    canvas {
+      image-rendering: optimizeSpeed;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: optimize-contrast;
+      image-rendering: pixelated;
+      -ms-interpolation-mode: nearest-neighbor;
+      border: 0px
+    }
+
+    .pico8_el {
+      float: left;
+      width: 25%;
+      display: inline-block;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      text-align: center;
+      color: #ffffff;
+      background-color: #151515;
+      font-size: 8pt;
+      cursor: pointer;
+      cursor: hand;
+    }
+
+    .pico8_el a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .pico8_el:hover {
+      background-color: #606060;
+    }
+
+    .pico8_el:link {
+      background-color: #606060;
+    }
+  </style>
+</head>
+
+<script type="text/javascript">
+  console.defaultLog = console.log.bind(console);
+  console.logs = [];
+  console.log = function () {
+    console.defaultLog.apply(console, arguments);
+    if (arguments[0] == 'clear') {
+      console.logs = [];
+      splits.innerHTML = '';
+    } else if (arguments[0].substring(0, 2) == '$$') {
+      console.logs.push(arguments[0].substring(2));
+      splits.innerHTML = console.logs.join('<br>')
+    }
+  }
+</script>
+
+<body>
+  <div class="bootup">
+    <img src="p8logo.png"> <img src="maddy.png" style="height:1.5em"><br><br>
+    pico-8 0.2.2c<br>
+    (c) 2014-20 lexaloffle games llp<br>
+    <br>
+  </div>
+  <div class="content">
+    > webek.p8<br>
+    <br>
+    <a href="index.html">back to homepage</a><br>
+    <br>
+    <table>
+      <tr>
+        <td>
+          <div style="width:512px;height:512px;border-style:solid;border-width:4px;border-color:#1d2b53;">
+            <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+            <script type="text/javascript">
+              var canvas = document.getElementById("canvas");
+              canvas.width = window.innerWidth;
+              canvas.height = window.innerHeight;
+              var Module = {};
+              Module.canvas = canvas;
+            </script>
+            <script async type="text/javascript" src="webek.js"></script>
+            <script>
+              function onKeyDown_blocker(event) {
+                event = event || window.event;
+                var o = document.activeElement;
+                if (!o || o == document.body || o.tagName == "canvas") {
+                  if ([32, 37, 38, 39, 40, 82].indexOf(event.keyCode) > -1) {
+                    if (event.preventDefault) event.preventDefault();
                   }
                 }
-                document.addEventListener('keydown', onKeyDown_blocker, false);
-              </script>
-            </div>
-            <div class=pico8_el onclick="Module.pico8Reset();">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dOwoAMQhE15A+rfc/3bZ7AlMnQfywCkKsfcgMM9ZP+QHtIn0vLeBAFduiFdQ/0DmvtR5LXJ6CPSXe2ZXcFNlTxFbemKrbZPs35XogeS9xeQr+anT6LzoOwEDwZJ7jwhXUnwkTTiDQ2Ja34AAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Reset" width=12 height=12/>
+              }
+              document.addEventListener('keydown', onKeyDown_blocker, false);
+            </script>
+          </div>
+          <div class=pico8_el onclick="Module.pico8Reset();">
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dOwoAMQhE15A+rfc/3bZ7AlMnQfywCkKsfcgMM9ZP+QHtIn0vLeBAFduiFdQ/0DmvtR5LXJ6CPSXe2ZXcFNlTxFbemKrbZPs35XogeS9xeQr+anT6LzoOwEDwZJ7jwhXUnwkTTiDQ2Ja34AAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+              alt="Reset" width=12 height=12 />
             reset
-            </div>
-            <div class=pico8_el onclick="Module.pico8TogglePaused();">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAPUlEQVR4Ae3doQ0AIAxEUWABLPtPh2WCq26DwFSU/JPNT166QSu/Hg86W9dwLte+diP7AwAAAAAAgD+A+jM2ZAgo84I0PgAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Pause" width=12 height=12/>
+          </div>
+          <div class=pico8_el onclick="Module.pico8TogglePaused();">
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAPUlEQVR4Ae3doQ0AIAxEUWABLPtPh2WCq26DwFSU/JPNT166QSu/Hg86W9dwLte+diP7AwAAAAAAgD+A+jM2ZAgo84I0PgAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+              alt="Pause" width=12 height=12 />
             pause
-            </div>
-            <div class=pico8_el onclick="Module.requestFullScreen(true, false);">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dsQ1AIQhExfze1v2ns3UCrfgFhmgUUAoGgHscp21wX9BqaZoDojbB96OkDJKNcTN2BHTyYNYmoT2BlPL7BKgcPfHjAVXKKadkHOn9K1r16N0czN6a95N8mnA7Aq2fTZ3Af3UKmCSMazL8HwAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Fullscreen" width=12 height=12/>
+          </div>
+          <div class=pico8_el onclick="Module.requestFullScreen(true, false);">
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAaklEQVR4Ae2dsQ1AIQhExfze1v2ns3UCrfgFhmgUUAoGgHscp21wX9BqaZoDojbB96OkDJKNcTN2BHTyYNYmoT2BlPL7BKgcPfHjAVXKKadkHOn9K1r16N0czN6a95N8mnA7Aq2fTZ3Af3UKmCSMazL8HwAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+              alt="Fullscreen" width=12 height=12 />
             fullscreen
-            </div>
-            <div class=pico8_el onclick="Module.pico8ToggleSound();">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAXklEQVR4Ae2doQ4AIQxD4YLH8v9fh+ULhjpxxSwLg2uyapr1JRu1iV5Z+1BGl4+xNpX38SYo2uRvYiT5LwEmt+ocgXVLrhPEgBiw8Q5w7/kueSkK+D2tJO4E/I3GrwkqQCBabEj/4QAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII=" alt="Toggle Sound" width=12 height=12/>
+          </div>
+          <div class=pico8_el onclick="Module.pico8ToggleSound();">
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAXklEQVR4Ae2doQ4AIQxD4YLH8v9fh+ULhjpxxSwLg2uyapr1JRu1iV5Z+1BGl4+xNpX38SYo2uRvYiT5LwEmt+ocgXVLrhPEgBiw8Q5w7/kueSkK+D2tJO4E/I3GrwkqQCBabEj/4QAAABB0RVh0TG9kZVBORwAyMDExMDIyMeNZtsEAAAAASUVORK5CYII="
+              alt="Toggle Sound" width=12 height=12 />
             sound
-            </div>
-          </td>
-          <td>
-            <div id="splits" style="padding-left:8px;width:256px;height:512px;max-height:512px;overflow-y:auto"></div>
-          </td>
-        </tr>
-      </table>
-      <br>
-    </div>
-  </body>
+          </div>
+        </td>
+        <td>
+          <div id="splits" style="padding-left:8px;width:256px;height:512px;max-height:512px;overflow-y:auto"></div>
+        </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+</body>
+
 </html>
