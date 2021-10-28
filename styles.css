@@ -1,17 +1,13 @@
 @font-face {
   font-family: 'pico-8';
-  src: url('font/pico-8-webfont.woff') format('woff'),
-       url('font/pico-8-webfont.woff2') format('woff2'),
-       url('font/pico-8.ttf') format('truetype');
+  src: url('font/pico-8-webfont.woff') format('woff'), url('font/pico-8-webfont.woff2') format('woff2'), url('font/pico-8.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'pico-8-smooth';
-  src: url('font/pico-8-smooth-webfont.woff') format('woff'),
-       url('font/pico-8-smooth-webfont.woff2') format('woff2'),
-       url('font/pico-8-smooth.otf') format('opentype');
+  src: url('font/pico-8-smooth-webfont.woff') format('woff'), url('font/pico-8-smooth-webfont.woff2') format('woff2'), url('font/pico-8-smooth.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,10 +15,8 @@
 body {
   margin: 8px;
   padding: 8px;
-
   width: 100vw - 8px;
   height: 100vh - 8px;
-
   font-family: 'pico-8';
   line-height: 1.25;
   background-color: #000;
