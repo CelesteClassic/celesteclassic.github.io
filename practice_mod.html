@@ -1,117 +1,119 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CELESTE Classic</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style type="text/css">
-      ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 8px;
-      }
 
-      ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(128, 128, 128, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-      }
-      .content hr {
-        border-top: 0.19em solid #fff1e8;
-        border-bottom: 0;
-        border-left: 0;
-        border-right: 0;
-        text-align: left;
-        margin-left: 0;
-        width: min(720px, 80vw);
-      }
+<head>
+  <title>CELESTE Classic Practice Mod</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <style type="text/css">
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 8px;
+    }
 
-      .subcontent {
-        width: min(720px, 80vw);
-        padding-left: 1ch;
-      }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(128, 128, 128, .5);
+      box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
 
-      .content em {
-        font-weight: normal;
-        font-style: normal;
-        color: #c2c3c7;
-      }
+    .content hr {
+      border-top: 0.19em solid #fff1e8;
+      border-bottom: 0;
+      border-left: 0;
+      border-right: 0;
+      text-align: left;
+      margin-left: 0;
+      width: min(720px, 80vw);
+    }
 
-      canvas#canvas {
-        width: 512px;
-        height: 512px;
-      }
+    .subcontent {
+      width: min(720px, 80vw);
+      padding-left: 1ch;
+    }
 
-      canvas {
-        image-rendering: optimizeSpeed;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: optimize-contrast;
-        image-rendering: pixelated;
-        -ms-interpolation-mode: nearest-neighbor;
-        border: 0px
-      }
-    </style>
-  </head>
-  <body>
-    <div class="bootup">
-      <img src="p8logo.png"> <img src="maddy.png" style="height:1.5em"><br><br>
-      pico-8 0.2.1b<br>
-      (c) 2014-20 lexaloffle games llp<br>
-      <br>
-    </div>
-    <div class="content">
-      > celeste classic practice mod (v600m)<br>
-      <br>
-      <a href="index.html">back to homepage</a><br>
-      <br>
-      <table>
-        <tr>
-          <td>
-            <div style="width:512px;height:512px;border-style:solid;border-width:4px;border-color:#1d2b53;">
-              <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
-              <script type="text/javascript">
-                var canvas = document.getElementById("canvas");
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                var Module = {};
-                Module.canvas = canvas;
-              </script>
-              <script async type="text/javascript" src="celeste_practice_mod.js"></script>
-              <script>
-                function onKeyDown_blocker(event) {
-                  event = event || window.event;
-                  var o = document.activeElement;
-                  if (!o || o == document.body || o.tagName == "canvas")
-                  {
-                    if ([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1)
-                    {
-                      if (event.preventDefault) event.preventDefault();
-                    }
+    .content em {
+      font-weight: normal;
+      font-style: normal;
+      color: #c2c3c7;
+    }
+
+    canvas#canvas {
+      width: 512px;
+      height: 512px;
+    }
+
+    canvas {
+      image-rendering: optimizeSpeed;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: optimize-contrast;
+      image-rendering: pixelated;
+      -ms-interpolation-mode: nearest-neighbor;
+      border: 0px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bootup">
+    <img src="p8logo.png"> <img src="maddy.png" style="height:1.5em"><br><br>
+    pico-8 0.2.1b<br>
+    (c) 2014-20 lexaloffle games llp<br>
+    <br>
+  </div>
+  <div class="content">
+    > celeste classic practice mod (v600m)<br>
+    <br>
+    <a href="index.html">back to homepage</a><br>
+    <br>
+    <table>
+      <tr>
+        <td>
+          <div style="width:512px;height:512px;border-style:solid;border-width:4px;border-color:#1d2b53;">
+            <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+            <script type="text/javascript">
+              var canvas = document.getElementById("canvas");
+              canvas.width = window.innerWidth;
+              canvas.height = window.innerHeight;
+              var Module = {};
+              Module.canvas = canvas;
+            </script>
+            <script async type="text/javascript" src="celeste_practice_mod.js"></script>
+            <script>
+              function onKeyDown_blocker(event) {
+                event = event || window.event;
+                var o = document.activeElement;
+                if (!o || o == document.body || o.tagName == "canvas") {
+                  if ([32, 37, 38, 39, 40].indexOf(event.keyCode) > -1) {
+                    if (event.preventDefault) event.preventDefault();
                   }
                 }
-                document.addEventListener('keydown', onKeyDown_blocker, false);
-              </script>
-            </div>
-          </td>
-          <td>
-            <div id="p8_desktop" style="width:148px;height:512px;max-height:512px;overflow-y:auto"></div>
-          </td>
-        </tr>
-      </table>
+              }
+              document.addEventListener('keydown', onKeyDown_blocker, false);
+            </script>
+          </div>
+        </td>
+        <td>
+          <div id="p8_desktop" style="width:148px;height:512px;max-height:512px;overflow-y:auto"></div>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <div class="subcontent">
+      controls
+      <hr>
+      <em>s</em>: previous level<br>
+      <em>f</em>: next Level<br>
+      <em>e</em>: toggle hud<br>
+      <em>d</em>: toggle bg music<br>
+      <em>a</em>: toggle <a href="/glossary/#gemskip">gemskip</a> (2300m+)<br>
+      <em>p</em>: pause (clear best times, rng seeding)<br>
       <br>
-      <div class="subcontent">
-        controls<hr>
-        <em>s</em>: previous level<br>
-        <em>f</em>: next Level<br>
-        <em>e</em>: toggle hud<br>
-        <em>d</em>: toggle bg music<br>
-        <em>a</em>: toggle <a href="/glossary/#gemskip">gemskip</a> (2300m+)<br>
-        <em>p</em>: pause (clear best times, rng seeding)<br>
-        <br>
-        <em>ctrl+9</em>: create gif of last 8 seconds<br>
-        <br>
-        a standalone practice mod can be downloaded <a href="downloads.html">here</a>.
-      </div
-    </div>
-  </body>
+      <em>ctrl+9</em>: create gif of last 8 seconds<br>
+      <br>
+      a standalone practice mod can be downloaded <a href="downloads.html">here</a>.
+    </div </div>
+</body>
+
 </html>
